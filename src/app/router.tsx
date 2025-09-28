@@ -6,10 +6,12 @@ import AppShell from './AppShell'
 // Páginas/ módulos (los tuyos)
 import {Dashboard} from '../pages/Dashboard'
 import CustomersPage from '../features/customers/CustomersPage'
-import ProductsPage from '../features/products/ProductsPage'
+import {ProductsPage} from '../features/products/ProductsPage'
 import ServicesPage from '../features/services/ServicesPage'
-import POSPage from '../features/pos/POSPage'
+import {POSPage} from '../features/pos/POSPage'
 import AgendaPage from '../features/agenda/AgendaPage'
+import FidelizacionPage from '../features/fidelizacion/FidelizacionPage'
+import { ReportPage } from '../features/reportes/ReportPage'
 
 
 export const router = createBrowserRouter([
@@ -25,10 +27,11 @@ export const router = createBrowserRouter([
       { index: true, element: <Dashboard /> },
       { path: 'clientes', element: <CustomersPage /> },
       { path: 'agenda', element: <AgendaPage /> },
+      { path: 'fidelizacion', element: <FidelizacionPage /> },
       { path: 'inventario', element: <ProductsPage /> },
       { path: 'servicios', element: <ServicesPage /> },
       { path: 'pos', element: <POSPage /> },
-
+      { path: 'reportes', element: <ReportPage /> },
     ],
   },
 ])

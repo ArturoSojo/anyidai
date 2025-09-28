@@ -52,7 +52,7 @@ export default function AppShell() {
 
         {/* El contenido ahora usa flex-1 y ocupa todo el ancho */}
         {showSidebar ? (
-          <SidebarInset className="flex-1 w-full">
+          <SidebarInset className="flex-1 w-full min-w-0 overflow-x-hidden">
             <header className="border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 sticky top-0 z-40">
               <div className="flex h-16 items-center justify-between px-6">
                 <div className="flex items-center gap-4">
@@ -65,13 +65,13 @@ export default function AppShell() {
               </div>
             </header>
 
-            <div className="p-6 w-full">
+            <div className="p-6 w-full max-w-full">
               <Outlet />
             </div>
           </SidebarInset>
         ) : (
-          <main className="flex-1 w-full min-h-screen">
-            <div className="p-6 w-full">
+          <main className="flex-1 w-full min-w-0 min-h-screen">
+            <div className="p-6 w-full max-w-full">
               <Outlet />
             </div>
           </main>
@@ -80,3 +80,4 @@ export default function AppShell() {
     </SidebarProvider>
   )
 }
+

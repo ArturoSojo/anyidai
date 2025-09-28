@@ -18,7 +18,7 @@ export default function Login() {
       <div style={styles.backGlow} />
       <header style={styles.brand}>
         <span style={styles.logoMark}>💈</span>
-        <span style={styles.logoText}>Barber Manager</span>
+        <span style={styles.logoText}>Anyidai</span>
       </header>
 
       <div style={styles.card}>
