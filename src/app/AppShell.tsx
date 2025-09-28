@@ -7,8 +7,15 @@ import { Moon, Sun } from 'lucide-react'
 import { MainSidebar } from '../components/MainSidebar'
 
 const SIDEBAR_ROUTES = new Set([
-  '/', '/clientes', '/agenda', '/inventario', '/servicios',
-  '/pos', '/reportes', '/fidelizacion'
+  'dashboard',
+  'clientes',
+  'agenda',
+  'inventario',
+  'servicios',
+  'pos',
+  'reportes',
+  'fidelizacion',
+  'usuarios',
 ])
 
 function useDarkMode() {
@@ -24,8 +31,8 @@ function useDarkMode() {
   return { dark, toggle }
 }
 
-function useHeaderTitle(pathname: string) {
-  const k = pathname === '/' ? 'dashboard' : pathname.split('/')[1]
+function useHeaderTitle(section: string) {
+  const k = section || 'dashboard'
   switch (k) {
     case 'clientes': return 'Gestión de Clientes'
     case 'agenda': return 'Agenda de Citas'
@@ -34,16 +41,18 @@ function useHeaderTitle(pathname: string) {
     case 'pos': return 'Punto de Venta'
     case 'reportes': return 'Reportes'
     case 'fidelizacion': return 'Fidelización'
+    case 'usuarios': return 'Gestión de usuarios'
     default: return 'Dashboard'
   }
 }
 
 export default function AppShell() {
   const { pathname } = useLocation()
-  const base = pathname === '/' ? '/' : `/${pathname.split('/')[1]}`
-  const showSidebar = SIDEBAR_ROUTES.has(base)
+  const segments = pathname.split('/').filter(Boolean)
+  const section = segments[2] ?? 'dashboard'
+  const showSidebar = segments[0] === 'business' && SIDEBAR_ROUTES.has(section)
   const { dark, toggle } = useDarkMode()
-  const title = useHeaderTitle(pathname)
+  const title = useHeaderTitle(section)
 
   return (
     <SidebarProvider>
