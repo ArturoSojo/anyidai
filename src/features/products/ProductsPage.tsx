@@ -1,5 +1,5 @@
 "use client"
-import React, { useEffect, useMemo, useState } from "react"
+import { useEffect, useMemo, useState } from "react"
 import {
   collection,
   addDoc,
@@ -11,7 +11,6 @@ import {
   orderBy,
   serverTimestamp,
   runTransaction,
-  getDoc,
 } from "firebase/firestore"
 import { db } from "../../lib/firebase"
 

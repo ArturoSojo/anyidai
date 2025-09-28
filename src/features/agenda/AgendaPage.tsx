@@ -1,5 +1,5 @@
 "use client"
-import React, { useEffect, useMemo, useState } from 'react'
+import { useEffect, useMemo, useState } from 'react'
 import {
   collection, addDoc, updateDoc, deleteDoc, doc,
   onSnapshot, query, where, serverTimestamp, getDocs

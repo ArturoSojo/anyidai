@@ -1,5 +1,5 @@
 "use client"
-import React, { useEffect, useMemo, useState } from "react"
+import { useEffect, useMemo, useState } from "react"
 import {
   addDoc, collection, deleteDoc, doc, onSnapshot, query, orderBy, serverTimestamp, updateDoc
 } from "firebase/firestore"
@@ -100,8 +100,6 @@ export default function CustomersPage() {
       default: return null
     }
   }
-  const calcularCambio = (actual: number, anterior: number) =>
-    anterior ? (((actual - anterior) / anterior) * 100).toFixed(1) : "0.0"
 
   // ======= CRUD =======
   const resetForm = () => {

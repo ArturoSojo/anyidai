@@ -1,8 +1,7 @@
 "use client"
 
-import React, { useEffect, useMemo, useState } from "react"
+import { useEffect, useMemo, useState } from "react"
 import { Card, CardContent, CardHeader, CardTitle } from "../components/ui/card"
-import { Button } from "../components/ui/button"
 import { Badge } from "../components/ui/badge"
 import { Progress } from "../components/ui/progress"
 import {
@@ -96,18 +95,9 @@ const toHourLabel = (d?: Timestamp, fallback?: string) => {
   if (!d) return ""
   const date = d.toDate()
   const hh = String(date.getHours()).padStart(2, "0")
-  const mm = String(date.getMinutes()).padStart(2, "0")
   return `${hh}:00` // redondeamos por hora
 }
 const fmtMoney = (n: number) => `$${n.toLocaleString()}`
-
-function addMinutes(hhmm: string, minutes: number) {
-  const [h, m] = hhmm.split(":").map((x) => parseInt(x, 10))
-  const d = new Date()
-  d.setHours(h, m, 0, 0)
-  d.setMinutes(d.getMinutes() + minutes)
-  return `${String(d.getHours()).padStart(2, "0")}:${String(d.getMinutes()).padStart(2, "0")}`
-}
 
 function withinNextHours(hhmm: string, hours = 4) {
   const now = new Date()
@@ -415,7 +405,7 @@ export function Dashboard() {
                 <XAxis dataKey="hora" stroke="#666" />
                 <YAxis stroke="#666" />
                 <Tooltip
-                  formatter={(value: any, name) => [fmtMoney(Number(value)), "Ventas"]}
+                  formatter={(value: any) => [fmtMoney(Number(value)), "Ventas"]}
                   labelStyle={{ color: "#333" }}
                 />
                 <Line type="monotone" dataKey="ventas" stroke="#7B1FA2" strokeWidth={3} dot={{ r: 3 }} />
