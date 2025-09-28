@@ -2,7 +2,7 @@ import { createBrowserRouter, Navigate, useParams } from 'react-router-dom'
 import Login from '../pages/Login'
 import ProtectedRoute from '../components/ProtectedRoute'
 import AppShell from './AppShell'
-import ConsolePage from '../pages/ConsolePage'
+import {ConsolePage} from '../pages/ConsolePage'
 import { BusinessProvider } from './providers/BusinessProvider'
 
 // Páginas/ módulos (los tuyos)
@@ -14,7 +14,8 @@ import {POSPage} from '../features/pos/POSPage'
 import AgendaPage from '../features/agenda/AgendaPage'
 import FidelizacionPage from '../features/fidelizacion/FidelizacionPage'
 import { ReportPage } from '../features/reportes/ReportPage'
-import UserManagementPage from '../features/users/UserManagementPage'
+import {UserManagement} from '../features/users/UserManagementPage'
+import { BusinessSettings } from '../features/setting/BusinessSettings'
 
 function BusinessRouteLayout() {
   const { businessId } = useParams<{ businessId: string }>()
@@ -53,7 +54,9 @@ export const router = createBrowserRouter([
       { path: 'servicios', element: <ServicesPage /> },
       { path: 'pos', element: <POSPage /> },
       { path: 'reportes', element: <ReportPage /> },
-      { path: 'usuarios', element: <UserManagementPage /> },
+      { path: 'usuarios', element: <UserManagement /> },
+      {path : 'configuracion', element: <BusinessSettings />},
+
     ],
   },
 ])

@@ -72,7 +72,7 @@ export function MainSidebar() {
     if (PRIVILEGED_ROLES.includes(role)) {
       groups.push({
         title: 'Administración',
-        items: [{ id: 'usuarios', title: 'Usuarios', icon: Shield, segment: 'usuarios' }],
+        items: [{ id: 'usuarios', title: 'Usuarios', icon: Shield, segment: 'usuarios' }, { id: 'configuracion', title: 'Configuración', icon: Store, segment: 'configuracion' }],
       })
     }
     return groups
@@ -87,9 +87,9 @@ export function MainSidebar() {
     <Sidebar className="border-r">
       <SidebarContent>
         {/* Branding */}
-        <div className="p-6 border-b bg-gradient-to-r from-purple-600 via-purple-700 to-pink-500">
+        <div className="p-2 border-b bg-gradient-to-r from-purple-600 via-purple-700 to-pink-500">
           <div className="flex items-center gap-3">
-            <div className="p-2 bg-white/20 rounded-lg backdrop-blur-sm">
+            <div className="bg-white/20 rounded-lg backdrop-blur-sm">
               <Store className="h-6 w-6 text-white" />
             </div>
             <div>
@@ -112,16 +112,12 @@ export function MainSidebar() {
             </SidebarGroupContent>
           </SidebarGroup>
         ))}
-        <Button variant="ghost" onClick={doLogout} size="sm" className="m-4 w-full">
+        
+     
+      </SidebarContent>
+         <Button variant="ghost" onClick={doLogout} size="sm" className="m-4 w-full">
           Cerrar sesión
         </Button>
-      </SidebarContent>
-      <Button variant="ghost" size="sm" className="m-4 w-full" asChild>
-        <a href="https://anyidai.com" target="_blank" rel="noopener noreferrer">
-          Versión 1.0.0
-        </a>
-      </Button>
     </Sidebar>
   )
 }
-
