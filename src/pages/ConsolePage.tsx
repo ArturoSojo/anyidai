@@ -393,7 +393,7 @@ export function ConsolePage() {
 
         {/* Crear Nuevo Negocio */}
         <section>
-          <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 14 }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 14, background: 'rgba(255,255,255,0.1)', padding: '10px 14px', borderRadius: 12, border: '1px solid rgba(255,255,255,.25)' }}>
             <Plus size={18} />
             <h3 style={{ fontSize: 18, fontWeight: 700 }}>Crear Nuevo Negocio</h3>
           </div>
@@ -418,7 +418,7 @@ export function ConsolePage() {
                     <Plus size={16} /> Crear Negocio
                   </button>
                 </DialogTrigger>
-                <DialogContent className="max-w-md rounded-2xl border border-white/50 bg-white/80 backdrop-blur-2xl shadow-2xl">
+                <DialogContent className="max-w-md rounded-2xl border border-white/50  backdrop-blur-2xl shadow-2xl">
                   <DialogHeader>
                     <DialogTitle className="text-lg font-semibold tracking-tight">Crear Nuevo Negocio</DialogTitle>
                   </DialogHeader>
