@@ -1,7 +1,9 @@
-import { createBrowserRouter } from 'react-router-dom'
+import { createBrowserRouter, Navigate, useParams } from 'react-router-dom'
 import Login from '../pages/Login'
 import ProtectedRoute from '../components/ProtectedRoute'
 import AppShell from './AppShell'
+import ConsolePage from '../pages/ConsolePage'
+import { BusinessProvider } from './providers/BusinessProvider'
 
 // Páginas/ módulos (los tuyos)
 import {Dashboard} from '../pages/Dashboard'
@@ -12,6 +14,17 @@ import {POSPage} from '../features/pos/POSPage'
 import AgendaPage from '../features/agenda/AgendaPage'
 import FidelizacionPage from '../features/fidelizacion/FidelizacionPage'
 import { ReportPage } from '../features/reportes/ReportPage'
+import UserManagementPage from '../features/users/UserManagementPage'
+
+function BusinessRouteLayout() {
+  const { businessId } = useParams<{ businessId: string }>()
+  if (!businessId) return <Navigate to="/" replace />
+  return (
+    <BusinessProvider businessId={businessId}>
+      <AppShell />
+    </BusinessProvider>
+  )
+}
 
 
 export const router = createBrowserRouter([
@@ -20,7 +33,15 @@ export const router = createBrowserRouter([
     path: '/',
     element: (
       <ProtectedRoute>
-        <AppShell />
+        <ConsolePage />
+      </ProtectedRoute>
+    ),
+  },
+  {
+    path: '/business/:businessId',
+    element: (
+      <ProtectedRoute>
+        <BusinessRouteLayout />
       </ProtectedRoute>
     ),
     children: [
@@ -32,6 +53,7 @@ export const router = createBrowserRouter([
       { path: 'servicios', element: <ServicesPage /> },
       { path: 'pos', element: <POSPage /> },
       { path: 'reportes', element: <ReportPage /> },
+      { path: 'usuarios', element: <UserManagementPage /> },
     ],
   },
 ])
