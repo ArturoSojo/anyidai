@@ -89,7 +89,7 @@ export function MainSidebar() {
         {/* Branding */}
         <div className="p-2 border-b bg-gradient-to-r from-purple-600 via-purple-700 to-pink-500">
           <div className="flex items-center gap-3">
-            <div className="bg-white/20 rounded-lg backdrop-blur-sm">
+            <div className=" rounded-lg backdrop-blur-sm">
               <Store className="h-6 w-6 text-white" />
             </div>
             <div>

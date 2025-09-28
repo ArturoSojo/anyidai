@@ -3383,7 +3383,7 @@
   --pastel-cyan: #00bcd4;
   --gradient-primary: linear-gradient(135deg, var(--pastel-purple-dark) 0%, var(--pastel-purple) 50%, var(--pastel-pink) 100%);
   --gradient-secondary: linear-gradient(135deg, var(--pastel-blue) 0%, var(--pastel-cyan) 100%);
-  --gradient-dark: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 50%, #1a1a1a 100%);
+  --gradient-dark: #1a1a1a ;
   --background: #fefefe;
   --foreground: #2d2d2d;
   --card: #fff;
@@ -3413,7 +3413,7 @@
   --chart-4: var(--pastel-cyan);
   --chart-5: var(--pastel-pink-light);
   --radius: .75rem;
-  --sidebar: linear-gradient(180deg, #fafbfc 0%, #f8f9fa 100%);
+  --sidebar: white;
   --sidebar-foreground: #2d2d2d;
   --sidebar-primary: var(--pastel-purple-dark);
   --sidebar-primary-foreground: #fff;
